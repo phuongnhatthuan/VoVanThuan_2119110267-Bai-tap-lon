@@ -1,0 +1,294 @@
+﻿<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="max-age=604800" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="description" content="Bootstrap e-commerce html template similar to Alibaba">
+    <meta name="keywords" content="Online template, shop, theme, template, html, css, bootstrap 4">
+
+    <title>CAKESTORE | Shop</title>
+
+    <link href="~/Content/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <!-- jQuery -->
+    <script src="~/Content/js/jquery-2.0.0.min.js" type="text/javascript"></script>
+
+
+    <!-- Bootstrap4 files-->
+    <script src="~/Content/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" type="text/css" />
+
+
+    <!-- Font awesome 5 -->
+    <link href="~/Content/fonts/fontawesome/css/all.min.css" type="text/css" rel="stylesheet">
+
+
+    <!-- custom style -->
+    <link href="~/Content/css/ui.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/responsive.css" rel="stylesheet" type="text/css" />
+
+
+    <!-- custom javascript -->
+    <script src="~/Content/js/script.js" type="text/javascript"></script>
+
+    <script src="~/Scripts/time.js"></script>
+
+
+</head>
+<body>
+  
+    <b class="screen-overlay"></b>
+
+    <header class="section-header">
+        <section class="header-main border-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-2 col-lg-3 col-md-12">
+                        <a href="~/Home" class="brand-wrap">
+                            <img class="logo" src="~/Content/images/logo1.png">
+                        </a> <!-- brand-wrap.// -->
+                    </div>
+                    <div class="col-xl-6 col-lg-5 col-md-6">
+                        <form action="#" class="search-header">
+                            <div class="input-group w-100">
+                                <select class="custom-select border-right" name="category_name">
+                                    <option value="">All type</option>
+                                    <option value="codex">Special</option>
+                                    <option value="comments">Only best</option>
+                                    <option value="content">Latest</option>
+                                </select>
+                                <input type="text" class="form-control" placeholder="Search">
+
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit">
+                                        <i class="fa fa-search"></i> Search
+                                    </button>
+                                </div>
+                            </div>
+                        </form> <!-- search-wrap .end// -->
+                    </div> <!-- col.// -->
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                        <div class="widgets-wrap float-md-right">
+                            <div class="widget-header mr-3">
+                                <a href="~/Admin/Home/Index" class="widget-view">
+                                    <div class="icon-area">
+                                        <i class="fa fa-user"></i>
+                                        <span class="notify">3</span>
+                                    </div>
+                                    @if (Session["idUser"] != null)
+                                    {
+                                            
+                                <a href="~/Home/Logout" class="fa fa-reply" >Logout</a>
+                                     
+                                    }
+                                     else
+                                    {
+                                 <a href="~/Home/Login"class="btn btn-primary">Login</a>
+                                
+                                    <a href="~/Home/Register"class="btn btn-warning">Register</a>
+                         
+                                             
+                                    }  
+                                </a>
+                                </div>
+                            <div class="widget-header mr-3">
+                                <a href="#" class="widget-view">
+                                    <div class="icon-area">
+                                        <i class="fa fa-comment-dots"></i>
+                                        <span class="notify">1</span>
+                                    </div>
+                                    <small class="text"> Message </small>
+                                </a>
+                            </div>
+                            <div class="widget-header mr-3">
+                                <a href="#" class="widget-view">
+                                    <div class="icon-area">
+                                        <i class="fa fa-store"></i>
+                                    </div>
+                                    <small class="text"> Orders </small>
+                                </a>
+                            </div>
+                            <div class="widget-header">
+                                <a href="@Url.Action("Index", "Cart")" class="widget-view">
+                                    <div class="icon-area">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        <span class="notify" id="CartCount">@Session["count"]</span>
+                                    </div>
+                                    <small class="text"> Cart </small>
+                                </a>
+                            </div>
+                        </div> <!-- widgets-wrap.// -->
+                    </div> <!-- col.// -->
+                </div> <!-- row.// -->
+            </div> <!-- container.// -->
+        </section> <!-- header-main .// -->
+
+
+
+        <nav class="navbar navbar-main navbar-expand-lg border-bottom">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" aria-controls="main_nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="main_nav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-bars text-muted mr-2"></i> Trang Chủ </a>
+                            <div class="dropdown-menu dropdown-large">
+                                <nav class="row">
+                                    <div class="col-6">
+                                        <a href="~/Home">Trang Home 1</a>
+                                      
+                                        <a href="~/Category">Tất cả sản phẩm</a>
+                                        <a href="~/Brand/Index">Danh sách thương hiệu</a>
+                                        <a href="~/Category/Index">Danh sách sản phẩm</a>
+                                        <a href="~/Cart/Index">Giỏi hàng</a>
+                                 
+                                        <a href="page-content.html">Page content</a>
+                                        <a href="~/Home/Login">Trang Đăng nhập</a>
+                                        <a href="~/Home/Register">Trang Đăng ký</a>
+                                    </div>
+                                    <div class="col-6">
+                                        <a href="page-profile-main.html">Profile main</a>
+                                        <a href="page-profile-orders.html">Profile orders</a>
+                                        <a href="page-profile-seller.html">Profile seller</a>
+                                        <a href="page-profile-wishlist.html">Profile wishlist</a>
+                                        <a href="page-profile-setting.html">Profile setting</a>
+                                        <a href="page-profile-address.html">Profile address</a>
+                                        <a href="rtl-page-index-1.html">RTL home page</a>
+                                        <a href="page-components.html" target="_blank">More components</a>
+                                    </div>
+                                </nav> <!--  row end .// -->
+                            </div> <!--  dropdown-menu dropdown-large end.// -->
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index","Category")">Sản phẩm</a>
+                        </li>
+                      
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">  Đạt bánh theo yêu cầu </a>
+                            <div class="dropdown-menu dropdown-large">
+                                <nav class="row">
+                                    <div class="col-6">
+                                        <a href="~/Home">Home page 1</a>
+                                        <a href="page-index-2.html">Home page 2</a>
+                                        <a href="@Url.Action("Index","Category")">All category</a>
+                                        <a href="page-listing-large.html">Listing list</a>
+                                        <a href="page-listing-grid.html">Listing grid</a>
+                                        <a href="page-shopping-cart.html">Shopping cart</a>
+                                        <a href="page-detail-product.html">Product detail</a>
+                                        <a href="page-content.html">Page content</a>
+                                        <a href="~/Home/Login">Page login</a>
+                                        <a href="~/Home/Register">Page register</a>
+                                    </div>
+                                </nav> <!--  row end .// -->
+                            </div> <!--  dropdown-menu dropdown-large end.// -->
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index","Brand")">Thương hiệu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index","News")">Tin tức</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index","Contact")">Liên hệ</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-md-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Tải ứng dụng</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="http://example.com" data-toggle="dropdown">English</a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#">Việt Nam</a>
+                               
+                            </div>
+                        </li>
+                    </ul>
+                </div> <!-- collapse .// -->
+            </div> <!-- container .// -->
+        </nav>
+
+    </header> <!-- section-header.// -->
+
+    @RenderBody()
+   
+    <footer class="section-footer bg-secondary">
+
+        <div class="container">
+            <section class="footer-top padding-y-lg text-white">
+                <div class="row">
+                    <aside class="col-md col-6">
+                        <h6 class="title">Thương Hiệu</h6>
+                      
+                        <ul class="list-unstyled">
+                         
+                                            <li> <a href="#">Bánh kem hàn quốc</a></li>
+                                                            <li> <a href="#">Bánh kem châu âu</a></li>
+                                                                            <li> <a href="#">Bánh kem Việt Nam</a></li>
+                                                                                            <li> <a href="#">Bánh kem Mỹ</a></li>
+                                                                                                            <li> <a href="#">Bánh kem thiên ân</a></li>
+                                                                                                                            <li> <a href="#">Bánh kem hàn quốc</a></li>
+                            
+                                                                                                                                        </ul>
+                            
+
+                    </aside>
+                    <aside class="col-md col-6">
+                        <h6 class="title">Công Ty</h6>
+                        <ul class="list-unstyled">
+                            <li> <a href="#">Brodard Bakery</a></li>
+                            <li> <a href="#">Tous les Jours</a></li>
+                            <li> <a href="#">Givral</a></li>
+                           
+                        </ul>
+                    </aside>
+                    <aside class="col-md col-6">
+                        <h6 class="title">Giúp Đỡ</h6>
+                        <ul class="list-unstyled">
+                            <li> <a href="#">Contact us</a></li>
+                            <li> <a href="#">Money refund</a></li>
+                            <li> <a href="#">Order status</a></li>
+                            <li> <a href="#">Shipping info</a></li>
+                            <li> <a href="#">Open dispute</a></li>
+                        </ul>
+                    </aside>
+                    <aside class="col-md col-6">
+                        <h6 class="title">Tài Khoản</h6>
+                        <ul class="list-unstyled">
+                            <li> <a href="#"> User Login </a></li>
+                            <li> <a href="#"> User register </a></li>
+                            <li> <a href="#"> Account Setting </a></li>
+                            <li> <a href="#"> My Orders </a></li>
+                        </ul>
+                    </aside>
+                    <aside class="col-md">
+                        <h6 class="title">KẾT NỐI CHÚNG TÔI</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="#"> <i class="fab fa-facebook"></i> Facebook </a></li>
+                            <li><a href="#"> <i class="fab fa-twitter"></i> Twitter </a></li>
+                            <li><a href="#"> <i class="fab fa-instagram"></i> Instagram </a></li>
+                            <li><a href="#"> <i class="fab fa-youtube"></i> Youtube </a></li>
+                        </ul>
+                    </aside>
+                </div> <!-- row.// -->
+            </section>	<!-- footer-top.// -->
+
+            <section class="footer-bottom text-center">
+
+                <p class="text-white">Privacy Policy - Terms of Use - User Information Legal Enquiry Guide</p>
+                <p class="text-muted"> CAKESTORE | Shop Copyright © 2022. Designed by HeyHeyTv </p>
+                <br>
+            </section>
+        </div><!-- //container -->
+    </footer>
+    <!-- ========================= FOOTER END // ========================= -->
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+
+
+</body>
+</html>

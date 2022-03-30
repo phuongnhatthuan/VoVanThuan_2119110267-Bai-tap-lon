@@ -1,0 +1,225 @@
+﻿
+@{
+    ViewBag.Title = "LienHe";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="suaspf">
+    <ul class="breadcrumb">
+   
+
+    </ul><link href="/libscript/cun/cloud/adminlib/jquery-ui.css" rel="stylesheet" type="text/css">
+    <link href="/libscript/cun/cloud/adminlib/jtable/themes/metro/green/jtable.css" rel="stylesheet" type="text/css">
+    <script src="/libscript/cun/cloud/adminlib/jtable/jquery.jtable.js" type="text/javascript"></script>
+    <link href="/libscript/cun/cloud/adminlib/css/jtable_mod_edit.css" rel="stylesheet" type="text/css">
+    <script>
+$(document).ready(function(){
+  $("#resetsp").click(function(){
+	$("#hoten").val("");
+	$("#statuz").val("5");
+  });
+});
+    </script>
+    <style>
+        .filtering, .movedm {
+            padding: 5px;
+            border: solid 1px #CCC
+        }
+
+            .filtering input, .movedm input, .movedm select, .filtering select {
+                padding: 5px;
+                margin-right: 5px;
+            }
+
+        .ip200 {
+            width: 400px;
+        }
+
+        .tttt {
+            width: 400px;
+            float: left;
+        }
+
+        .ttxoa {
+            width: 130px;
+            float: right;
+        }
+
+        .ichua {
+            padding: 5px;
+            background: #F00;
+            font-size: 12px;
+            border-radius: 3px;
+            color: #FFF;
+            white-space: nowrap
+        }
+
+        .isucc {
+            padding: 5px;
+            background: #0C0;
+            font-size: 12px;
+            border-radius: 3px;
+            color: #FFF;
+            white-space: nowrap
+        }
+
+        .tvk {
+            font-size: 12px;
+        }
+
+        .tvt {
+            font-size: 12px;
+            color: #F00
+        }
+
+        form.jtable-dialog-form div.jtable-input-label {
+            padding: 1px;
+            ;
+            font-size: 11px;
+            color: #666
+        }
+
+        .ui-widget-overlay {
+            height: 200%;
+            background: #999;
+            opacity: .80;
+            filter: Alpha(Opacity=80);
+        }
+
+        div.jtable-main-container > table.jtable > thead th.jtable-column-header div.jtable-column-header-container span.jtable-column-header-text, .nutsm {
+            white-space: nowrap
+        }
+    </style>
+
+    <div id="dsorder"><div class="jtable-main-container"><div class="jtable-busy-panel-background jtable-busy-panel-background-invisible" style="display: none; width: 1243px; height: 109px;"></div><div class="jtable-busy-message" style="display: none;"></div><div class="jtable-title"><div class="jtable-title-text">Danh sách liên hệ</div><div class="jtable-toolbar"></div></div><table class="jtable"><thead><tr><th class="jtable-command-column-header jtable-column-header-selecting" style="width: 1%;"><div class="jtable-column-header-container"><input type="checkbox"></div></th><th class="jtable-column-header jtable-column-header-sortable" style="width: 46.8231%;"><div class="jtable-column-header-container"><span class="jtable-column-header-text">Họ tên</span><div class="jtable-column-resize-handler"></div></div></th><th class="jtable-column-header jtable-column-header-sortable" style="width: 9.69321%;"><div class="jtable-column-header-container"><span class="jtable-column-header-text">Điện thoại</span><div class="jtable-column-resize-handler"></div></div></th><th class="jtable-column-header jtable-column-header-sortable" style="width: 9.36463%;"><div class="jtable-column-header-container"><span class="jtable-column-header-text">Email</span><div class="jtable-column-resize-handler"></div></div></th><th class="jtable-column-header jtable-column-header-sortable" style="width: 18.7293%;"><div class="jtable-column-header-container"><span class="jtable-column-header-text">Thời gian</span><div class="jtable-column-resize-handler"></div></div></th><th class="jtable-column-header jtable-column-header-sortable" style="width: 6.32523%;"><div class="jtable-column-header-container"><span class="jtable-column-header-text">Tình trạng</span><div class="jtable-column-resize-handler"></div></div></th><th class="jtable-column-header" style="width: 7.06454%;"><div class="jtable-column-header-container"><span class="jtable-column-header-text">Xem chi tiết</span></div></th><th class="jtable-command-column-header" style="width: 1%;"></th></tr></thead><tbody><tr class="jtable-data-row jtable-row-even" data-record-key="5376"><td class="jtable-selecting-column"><input type="checkbox"></td><td>Phương Nhất Thuận</td><td>0395041714</td><td>phuongnhatthuan@gmail.com</td><td>09:18 - 23/03/2022</td><td><span class="ichua"><i class="fa fa-comment-o" aria-hidden="true"></i> Chưa xem</span></td><td><a datasize="900xauto" class="opendivdialog" datadiv="admin/popmini-formlienhe.aspx?code=5376" href="javascript:;"><button class="nutsm"><i class="fa fa-search" aria-hidden="true"></i> Chi tiết</button></a></td><td class="jtable-command-column"><button title="Edit Record" class="jtable-command-button jtable-edit-command-button"><span>Edit Record</span></button></td></tr><tr class="jtable-data-row" data-record-key="5155"><td class="jtable-selecting-column"><input type="checkbox"></td><td>Phương Nhất Thuận</td><td>0395041714</td><td>phuongnhatthuan@gmail.com</td><td>15:26 - 28/06/2021</td><td><span class="isucc"><i class="fa fa-check" aria-hidden="true"></i> Đã xem</span></td><td><a datasize="900xauto" class="opendivdialog" datadiv="admin/popmini-formlienhe.aspx?code=5155" href="javascript:;"><button class="nutsm"><i class="fa fa-search" aria-hidden="true"></i> Chi tiết</button></a></td><td class="jtable-command-column"><button title="Edit Record" class="jtable-command-button jtable-edit-command-button"><span>Edit Record</span></button></td></tr><tr class="jtable-data-row jtable-row-even" data-record-key="4469"><td class="jtable-selecting-column"><input type="checkbox"></td><td>kotên</td><td>0392191369</td><td>tuanle@gmail.com</td><td>18:20 - 29/03/2020</td><td><span class="isucc"><i class="fa fa-check" aria-hidden="true"></i> Đã xem</span></td><td><a datasize="900xauto" class="opendivdialog" datadiv="admin/popmini-formlienhe.aspx?code=4469" href="javascript:;"><button class="nutsm"><i class="fa fa-search" aria-hidden="true"></i> Chi tiết</button></a></td><td class="jtable-command-column"><button title="Edit Record" class="jtable-command-button jtable-edit-command-button"><span>Edit Record</span></button></td></tr><tr class="jtable-data-row" data-record-key="4250"><td class="jtable-selecting-column"><input type="checkbox"></td><td>Võ Văn Thuận</td><td>0395041713</td><td>vanthuanty@gmail.com</td><td>13:46 - 15/12/2019</td><td><span class="isucc"><i class="fa fa-check" aria-hidden="true"></i> Đã xem</span></td><td><a datasize="900xauto" class="opendivdialog" datadiv="admin/popmini-formlienhe.aspx?code=4250" href="javascript:;"><button class="nutsm"><i class="fa fa-search" aria-hidden="true"></i> Chi tiết</button></a></td><td class="jtable-command-column"><button title="Edit Record" class="jtable-command-button jtable-edit-command-button"><span>Edit Record</span></button></td></tr><tr class="jtable-data-row jtable-row-even" data-record-key="3835"><td class="jtable-selecting-column"><input type="checkbox"></td><td>Võ Văn Thuận</td><td>0395041714</td><td>thuanprof@gmail.com</td><td>22:47 - 21/05/2019</td><td><span class="isucc"><i class="fa fa-check" aria-hidden="true"></i> Đã xem</span></td><td><a datasize="900xauto" class="opendivdialog" datadiv="admin/popmini-formlienhe.aspx?code=3835" href="javascript:;"><button class="nutsm"><i class="fa fa-search" aria-hidden="true"></i> Chi tiết</button></a></td><td class="jtable-command-column"><button title="Edit Record" class="jtable-command-button jtable-edit-command-button"><span>Edit Record</span></button></td></tr></tbody></table><div class="jtable-bottom-panel"><div class="jtable-left-area"><span class="jtable-page-list"><span class="jtable-page-number-first jtable-page-number-disabled">&lt;&lt;</span><span class="jtable-page-number-previous jtable-page-number-disabled">&lt;</span><span class="jtable-page-number jtable-page-number-active jtable-page-number-disabled">1</span><span class="jtable-page-number-next jtable-page-number-disabled">&gt;</span><span class="jtable-page-number-last jtable-page-number-disabled">&gt;&gt;</span></span><span class="jtable-goto-page"><span>Trang: </span><select><option value="1">1</option></select></span><span class="jtable-page-size-change"><span>Show: </span><select><option value="10">10</option><option value="20">20</option></select></span></div><div class="jtable-right-area"><span class="jtable-page-info">Showing 1-5 of 5</span></div></div><div class="jtable-column-resize-bar" style="display: none;"></div><div class="jtable-column-selection-container"></div></div></div>
+    <div class="movedm">
+
+
+        <div class="clear"></div>
+    </div>
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $('#dsorder').jtable({
+            title: 'Danh sách liên hệ',
+			paging: true,
+			pageSize: 20,
+			sorting: true,
+			defaultSorting: 'idcon DESC',
+			selecting: true, //Enable selecting
+            multiselect: true, //Allow multiple selecting
+            selectingCheckboxes: true, //Show checkboxes on first c
+			selectOnRowClick: false,
+
+            actions: {
+           			listAction: './ajax-19.aspx?mix=list',
+					updateAction: './ajax-19.aspx?mix=edit'
+            },
+            fields: {
+
+					idcon: {
+						key: true,
+						title: 'id',
+						width: '1%',
+						create: false,
+						edit: false,
+						list:false
+					},
+
+
+					hoten: {
+						title: 'Họ tên',
+						width: '25%',
+						edit: false
+					},
+
+					dienthoai: {
+						title: 'Điện thoại',
+						width: '5%',
+						edit: false
+					},
+
+					email: {
+						title: 'Email',
+						width: '5%',
+						edit: false
+					},
+
+					thoigian: {
+						title: 'Thời gian',
+						width: '10%',
+						edit: false
+					},
+
+					doc: {
+						title: 'Tình trạng',
+						width: '1%',
+						options: { '0': 'Chưa xem', '1': 'Đã xem' },
+						display: function (data) {
+						var ttg = data.record.doc;
+						if (ttg==0) { ttg = '<span class="ichua"><i class="fa fa-comment-o" aria-hidden="true"></i> Chưa xem</span>';  }
+						if (ttg==1) { ttg = '<span class="isucc"><i class="fa fa-check" aria-hidden="true"></i> Đã xem</span>';}
+
+ 						return ttg;
+						}
+					},
+
+					tool1: {
+						title: 'Xem chi tiết',
+						width: '1%',
+						edit:false,
+						sorting:false,
+						display: function (data) {
+                		return '<a datasize="900xauto" class="opendivdialog" datadiv="admin/popmini-formlienhe.aspx?code='+data.record.idcon+'" href="javascript:;"><button class="nutsm"><i class="fa fa-search" aria-hidden="true"></i> Chi tiết</button></a>';
+           }
+					}
+				} // ket thuc field
+        });
+
+        //Load all records when page is first shown
+        $('#dsorder').jtable('load');
+		//Delete selected students
+
+		// up tt
+
+		 $("#update").click(function () {
+        var action = $("#thaotac").val(), actionName = $('#thaotac').find('option:selected').text();
+        if (action == 0) {
+            alert('Vui lòng chọn trạng thái cần cập nhật !');
+            return;
+        }
+        if (!confirm('Bạn chắc thực hiện cập nhật các dòng đã chọn có trạng thái ' + actionName))
+            return false;
+        var $selectedRows = $('#dsorder').jtable('selectedRows');
+        ;
+        var selectrowsid = [];
+        $selectedRows.each(function () {
+            var record = $(this).data('record');
+            selectrowsid.push(record.iddh);
+        });
+        if (selectrowsid.length < 1) {
+            alert('Chưa có dòng nào được chọn!');
+            return;
+        }
+        $.ajax({
+            type: "POST",
+            url: "./ajax-14.aspx?mix=editmore",
+            data: {idcon: selectrowsid, action: action}
+        }).done(function (msg) {
+            if (msg == 'BAD') {
+                alert('cập nhật không thành công');
+                return false;
+            }
+
+            $('#dsorder').jtable('reload', function () {
+                var $selectedRows = $('#dsorder').jtable('selectedRows');
+                var $chkBox = $selectedRows.find('td.jtable-selecting-column input').attr('checked', true);
+                $chkBox.attr('checked', false);
+                $('.jtable-row-selected').removeClass('jtable-row-selected');
+            });
+        });
+
+    });
+		 // ket thuc tt
+    });
+    </script>
+</div>

@@ -1,0 +1,55 @@
+﻿@model List<Bai_tap_lon.Context.News>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="sub_main">
+    <h1>
+    <center>Tin tức</center>
+    </h1>
+    <div class="content_main">
+        <div class="box_news">
+            @foreach (var item in Model)
+            {
+                <article class="card card-product-list">
+                    <div class="row no-gutters">
+                        <aside class="col-md-3">
+
+                            <a href="~/Product/Detail/@item.Id" class="img-wrap">
+                                <span class="badge badge-danger"> NEW </span>
+
+                                <img src="~/Content/images/avatars/@item.Avartar">
+                            </a>
+                        </aside> <!-- col.// -->
+                        <div class="col-md-6">
+                            <div class="info-main">
+                                <a href="#" class="h5 title"> @item.Name</a>
+                                <div class="rating-wrap mb-2">
+                                    <ul class="rating-stars">
+                                        <li style="width:100%" class="stars-active">
+                                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </li>
+                                       
+                                    </ul>
+                                
+                                </div> <!-- rating-wrap.// -->
+
+                              
+
+                                <p>
+                                    @item.FullDescription
+                                </p>
+
+                            </div> <!-- info-main.// -->
+                        </div> <!-- col.// -->
+                      
+                    </div> <!-- row.// -->
+                </article> <!-- card-product .// -->
+            }
+        </div>
+</div>
+</div>
