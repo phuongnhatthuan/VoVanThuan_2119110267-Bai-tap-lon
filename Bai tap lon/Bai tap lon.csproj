@@ -2320,6 +2320,7 @@
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\logo.svg" />
     <Content Include="Content\images\logo1.png" />
+    <Content Include="Content\images\logo2.png" />
     <Content Include="Content\images\misc\appstore.png" />
     <Content Include="Content\images\misc\payments.png" />
     <Content Include="Content\images\misc\playmarket.png" />
