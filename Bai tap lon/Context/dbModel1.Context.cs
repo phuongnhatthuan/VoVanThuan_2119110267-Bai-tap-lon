@@ -13,10 +13,10 @@ namespace Bai_tap_lon.Context
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class WEBEntities3 : DbContext
+    public partial class WEBEntities8 : DbContext
     {
-        public WEBEntities3()
-            : base("name=WEBEntities3")
+        public WEBEntities8()
+            : base("name=WEBEntities8")
         {
         }
     
@@ -27,8 +27,10 @@ namespace Bai_tap_lon.Context
     
         public virtual DbSet<Brand> Brands { get; set; }
         public virtual DbSet<Categorry> Categorries { get; set; }
+        public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<News> News { get; set; }
-        public virtual DbSet<Oder> Oders { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }

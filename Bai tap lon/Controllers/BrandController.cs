@@ -9,12 +9,12 @@ namespace Bai_tap_lon.Controllers
 {
     public class BrandController : Controller
     {
-        WEBEntities7 objWEBEntities7 = new WEBEntities7();
+        WEBEntities8 objWEBEntities8 = new WEBEntities8();
         // GET: Brand
         public ActionResult Index()
         {
 
-            var lstBrand = objWEBEntities7.Brands.ToList();
+            var lstBrand = objWEBEntities8.Brands.ToList();
             return View(lstBrand);
         }
         public ActionResult ProductBand()

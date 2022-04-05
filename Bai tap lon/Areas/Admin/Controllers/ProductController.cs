@@ -13,7 +13,7 @@ namespace Bai_tap_lon.Areas.Admin.Controllers
 {
     public class ProductController : Controller
     {
-        WEBEntities7 objWEBEntities7 = new WEBEntities7();
+        WEBEntities8 objWEBEntities8 = new WEBEntities8();
         // GET: Admin/Product
 
         public ActionResult Index(string currenFilter, string SearchString, int? page)
@@ -29,11 +29,11 @@ namespace Bai_tap_lon.Areas.Admin.Controllers
             }    
             if(!string.IsNullOrEmpty(SearchString))
             {
-                lstProduct = objWEBEntities7.Products.Where(n => n.Name.Contains(SearchString)).ToList();
+                lstProduct = objWEBEntities8.Products.Where(n => n.Name.Contains(SearchString)).ToList();
             }    
             else
             {
-                lstProduct = objWEBEntities7.Products.ToList();
+                lstProduct = objWEBEntities8.Products.ToList();
             }
             ViewBag.currenFilter = SearchString;
             int pageSize = 4;
@@ -76,8 +76,8 @@ namespace Bai_tap_lon.Areas.Admin.Controllers
                         objProduct.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Context/images/"), fileName));
                     }
                     objProduct.CreateOnUtc = DateTime.Now;
-                    objWEBEntities7.Products.Add(objProduct);
-                    objWEBEntities7.SaveChanges();
+                    objWEBEntities8.Products.Add(objProduct);
+                    objWEBEntities8.SaveChanges();
 
                     return RedirectToAction("Index");
                 }
@@ -94,27 +94,27 @@ namespace Bai_tap_lon.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Details(int id)
         {
-            var objProduct = objWEBEntities7.Products.Where(n => n.Id == id).FirstOrDefault();
+            var objProduct = objWEBEntities8.Products.Where(n => n.Id == id).FirstOrDefault();
             return View(objProduct);
         }
         [HttpGet]
         public ActionResult Delete(int id)
         {
-            var objProduct = objWEBEntities7.Products.Where(n => n.Id == id).FirstOrDefault();
+            var objProduct = objWEBEntities8.Products.Where(n => n.Id == id).FirstOrDefault();
             return View(objProduct);
         }
         [HttpPost]
         public ActionResult Delete(Product objPro)
         {
-            var objProduct = objWEBEntities7.Products.Where(n => n.Id == objPro.Id).FirstOrDefault();
-            objWEBEntities7.Products.Remove(objProduct);
-            objWEBEntities7.SaveChanges();
+            var objProduct = objWEBEntities8.Products.Where(n => n.Id == objPro.Id).FirstOrDefault();
+            objWEBEntities8.Products.Remove(objProduct);
+            objWEBEntities8.SaveChanges();
             return RedirectToAction("Index");
         }
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var objProduct = objWEBEntities7.Products.Where(n => n.Id == id).FirstOrDefault();
+            var objProduct = objWEBEntities8.Products.Where(n => n.Id == id).FirstOrDefault();
             return View(objProduct);
         }
         [HttpPost]
@@ -128,21 +128,21 @@ namespace Bai_tap_lon.Areas.Admin.Controllers
                 objProduct.Avatar = fileName;
                 objProduct.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Context/images/"), fileName));
             }
-            objWEBEntities7.Entry(objProduct).State = EntityState.Modified;
-            objWEBEntities7.SaveChanges();
+            objWEBEntities8.Entry(objProduct).State = EntityState.Modified;
+            objWEBEntities8.SaveChanges();
             return RedirectToAction("Index");
         }
         void LoadData()
         {
             Commo objCommo = new Commo();
             //lay dử liệu danh mục dưới db
-            var lstCat = objWEBEntities7.Categorries.ToList();
+            var lstCat = objWEBEntities8.Categorries.ToList();
             //convert sang select list dang value,text
             ListtoDataTableConverter converter = new ListtoDataTableConverter();
             DataTable dtCategory = converter.ToDataTable(lstCat);
             ViewBag.ListCategory = objCommo.ToSelectList(dtCategory, "Id", "Name");
             //lấy dử liệu thương hiêu dưới DB
-            var lstBrand = objWEBEntities7.Brands.ToList();
+            var lstBrand = objWEBEntities8.Brands.ToList();
             DataTable dtBrand = converter.ToDataTable(lstBrand);
             // convert sang select
             ViewBag.ListBrand = objCommo.ToSelectList(dtBrand, "Id", "Name");

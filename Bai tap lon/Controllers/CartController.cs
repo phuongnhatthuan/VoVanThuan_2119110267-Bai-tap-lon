@@ -10,7 +10,7 @@ namespace Bai_tap_lon.Controllers
 {
     public class CartController : Controller
     {
-        WEBEntities7 objWEBEntities7 = new WEBEntities7();
+        WEBEntities8 objWEBEntities8 = new WEBEntities8();
         // GET: Cart
         public ActionResult Index()
         {
@@ -21,7 +21,7 @@ namespace Bai_tap_lon.Controllers
             if (Session["cart"] == null)
             {
                 List<CartModel> cart = new List<CartModel>();
-                cart.Add(new CartModel { Product = objWEBEntities7.Products.Find(id), Quantity = quantity });
+                cart.Add(new CartModel { Product = objWEBEntities8.Products.Find(id), Quantity = quantity });
                 Session["cart"] = cart;
                 Session["count"] = 1;
             } 
@@ -35,7 +35,7 @@ namespace Bai_tap_lon.Controllers
                 }
                 else
                 {
-                    cart.Add(new CartModel { Product = objWEBEntities7.Products.Find(id), Quantity = quantity });
+                    cart.Add(new CartModel { Product = objWEBEntities8.Products.Find(id), Quantity = quantity });
                     //Tính lại số sản phẩm trong giỏ hàng
                     Session["count"] = Convert.ToInt32(Session["count"]) + 1;
                 }

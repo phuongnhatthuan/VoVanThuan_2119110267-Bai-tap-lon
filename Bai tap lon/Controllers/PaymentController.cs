@@ -11,7 +11,7 @@ namespace Bai_tap_lon.Controllers
     public class PaymentController : Controller
     {
         // GET: Payment
-        WEBEntities7 objWEBEntities7 = new WEBEntities7();
+        WEBEntities8 objWEBEntities8 = new WEBEntities8();
         public ActionResult Index()
         {   
             if(Session["idUser"] == null)
@@ -28,9 +28,9 @@ namespace Bai_tap_lon.Controllers
                 objOrder.UserId = int.Parse(Session["idUser"].ToString());
                 objOrder.CreatedOnUtc = DateTime.Now;
                 objOrder.Status = 1;
-                objWEBEntities7.Orders.Add(objOrder);
+                objWEBEntities8.Orders.Add(objOrder);
                 // lưu thông tin
-                objWEBEntities7.SaveChanges();
+                objWEBEntities8.SaveChanges();
                 //lấy order
                 int intOrderId = objOrder.Id;
                 List<OrderDetail> lstOrderDetail = new List<OrderDetail>();
@@ -42,8 +42,8 @@ namespace Bai_tap_lon.Controllers
                     obj.ProductId = item.Product.Id;
                     lstOrderDetail.Add(obj);
                 }
-                objWEBEntities7.OrderDetails.AddRange(lstOrderDetail);
-                objWEBEntities7.SaveChanges();
+                objWEBEntities8.OrderDetails.AddRange(lstOrderDetail);
+                objWEBEntities8.SaveChanges();
             }
             return View();
            

@@ -9,11 +9,11 @@ namespace Bai_tap_lon.Controllers
 {
     public class NewsController : Controller
     {
-        WEBEntities7 objWEBEntities7 = new WEBEntities7();
+        WEBEntities8 objWEBEntities8 = new WEBEntities8();
         // GET: News
         public ActionResult Index()
         {
-            var lstNews = objWEBEntities7.News.ToList();
+            var lstNews = objWEBEntities8.News.ToList();
             return View(lstNews);
         }
     }
