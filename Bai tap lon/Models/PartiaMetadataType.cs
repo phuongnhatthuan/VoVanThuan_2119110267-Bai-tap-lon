@@ -31,4 +31,10 @@ namespace Bai_tap_lon.Context
         [NotMapped]
         public System.Web.HttpPostedFileBase ImageUpload { get; set; }
     }
+    [MetadataType(typeof(BrandMaterData))]
+    public partial class Brand
+    {
+        [NotMapped]
+        public System.Web.HttpPostedFileBase ImageUpload { get; set; }
+    }
 }

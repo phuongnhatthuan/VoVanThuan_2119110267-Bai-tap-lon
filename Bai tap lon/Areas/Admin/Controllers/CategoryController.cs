@@ -122,12 +122,12 @@ namespace Bai_tap_lon.Areas.Admin.Controllers
                 string extension = Path.GetExtension(objCategorry.ImageUpload.FileName);
                 fileName = fileName + extension + "_" + long.Parse(DateTime.Now.ToString("yyyyMMddhhmmss"));
                 objCategorry.Avatar = fileName;
-                objCategorry.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Context/images/"), fileName));
+                objCategorry.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/"), fileName));
             }
             objWEBEntities9.Entry(objCategorry).State = EntityState.Modified;
             objWEBEntities9.SaveChanges();
             return RedirectToAction("Index");
         }
-      
+
     }
 }

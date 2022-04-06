@@ -108,14 +108,13 @@ namespace Bai_tap_lon.Areas.Admin.Controllers
             objWEBEntities9.SaveChanges();
             return RedirectToAction("Index");
         }
-        [HttpGet]
         public ActionResult Edit(int id)
         {
             var objProduct = objWEBEntities9.Products.Where(n => n.Id == id).FirstOrDefault();
             return View(objProduct);
         }
         [HttpPost]
-        public ActionResult Edit(int id,Product objProduct)
+        public ActionResult Edit(int id, Product objProduct)
         {
             if (objProduct.ImageUpload != null)
             {
@@ -123,7 +122,7 @@ namespace Bai_tap_lon.Areas.Admin.Controllers
                 string extension = Path.GetExtension(objProduct.ImageUpload.FileName);
                 fileName = fileName + extension + "_" + long.Parse(DateTime.Now.ToString("yyyyMMddhhmmss"));
                 objProduct.Avatar = fileName;
-                objProduct.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Context/images/"), fileName));
+                objProduct.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/"), fileName));
             }
             objWEBEntities9.Entry(objProduct).State = EntityState.Modified;
             objWEBEntities9.SaveChanges();

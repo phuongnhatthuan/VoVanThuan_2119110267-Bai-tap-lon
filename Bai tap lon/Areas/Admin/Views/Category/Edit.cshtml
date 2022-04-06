@@ -5,7 +5,7 @@
 }
 
 <h2>Edit</h2>
-@using (Html.BeginForm("Edit", "Category", FormMethod.Post, new { enctype = "multipart/from-data" }))
+@using (Html.BeginForm("Edit", "Category", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 

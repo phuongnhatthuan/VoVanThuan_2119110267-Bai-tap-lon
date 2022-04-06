@@ -10,13 +10,13 @@ using System.Web.Mvc;
 
 namespace Bai_tap_lon.Areas.Admin.Controllers
 {
-    public class NewsController : Controller
+    public class BrandController : Controller
     {
         WEBEntities9 objWEBEntities9 = new WEBEntities9();
         // GET: Admin/News
         public ActionResult Index(string currenFilter, string SearchString, int? page)
         {
-            var lstNews = new List<News>();
+            var lstBrand = new List<Brand>();
             if (SearchString != null)
             {
                 page = 1;
@@ -27,17 +27,17 @@ namespace Bai_tap_lon.Areas.Admin.Controllers
             }
             if (!string.IsNullOrEmpty(SearchString))
             {
-                lstNews = objWEBEntities9.News.Where(n => n.Name.Contains(SearchString)).ToList();
+                lstBrand = objWEBEntities9.Brands.Where(n => n.Name.Contains(SearchString)).ToList();
             }
             else
             {
-                lstNews = objWEBEntities9.News.ToList();
+                lstBrand = objWEBEntities9.Brands.ToList();
             }
             ViewBag.currenFilter = SearchString;
             int pageSize = 4;
             int pageNumber = (page ?? 1);
-            lstNews = lstNews.OrderByDescending(n => n.Id).ToList();
-            return View(lstNews.ToPagedList(pageNumber, pageSize));
+            lstBrand = lstBrand.OrderByDescending(n => n.Id).ToList();
+            return View(lstBrand.ToPagedList(pageNumber, pageSize));
         }
         [HttpGet]
         public ActionResult Create()
@@ -52,23 +52,23 @@ namespace Bai_tap_lon.Areas.Admin.Controllers
         }
         [ValidateInput(false)]
         [HttpPost]
-        public ActionResult Create(News objNews)
+        public ActionResult Create(Brand objBrand)
         {
 
             if (ModelState.IsValid)
             {
                 try
                 {
-                    if (objNews.ImageUpload != null)
+                    if (objBrand.ImageUpload != null)
                     {
-                        string fileName = Path.GetFileNameWithoutExtension(objNews.ImageUpload.FileName);
-                        string extension = Path.GetExtension(objNews.ImageUpload.FileName);
+                        string fileName = Path.GetFileNameWithoutExtension(objBrand.ImageUpload.FileName);
+                        string extension = Path.GetExtension(objBrand.ImageUpload.FileName);
                         fileName = fileName + "_" + long.Parse(DateTime.Now.ToString("yyyyMMddhhmmss")) + extension;
-                        objNews.Avartar = fileName;
-                        objNews.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/"), fileName));
+                        objBrand.Avatar = fileName;
+                        objBrand.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/"), fileName));
                     }
-                    objNews.CreateOnUtc = DateTime.Now;
-                    objWEBEntities9.News.Add(objNews);
+                    objBrand.CreateOnUtc = DateTime.Now;
+                    objWEBEntities9.Brands.Add(objBrand);
                     objWEBEntities9.SaveChanges();
 
                     return RedirectToAction("Index");
@@ -80,47 +80,47 @@ namespace Bai_tap_lon.Areas.Admin.Controllers
                 }
 
             }
-            return View(objNews);
+            return View(objBrand);
         }
 
         [HttpGet]
         public ActionResult Details(int id)
         {
-            var objNews = objWEBEntities9.News.Where(n => n.Id == id).FirstOrDefault();
-            return View(objNews);
+            var objBrand = objWEBEntities9.Brands.Where(n => n.Id == id).FirstOrDefault();
+            return View(objBrand);
         }
         [HttpGet]
         public ActionResult Delete(int id)
         {
-            var objNews = objWEBEntities9.News.Where(n => n.Id == id).FirstOrDefault();
-            return View(objNews);
+            var objBrand = objWEBEntities9.Brands.Where(n => n.Id == id).FirstOrDefault();
+            return View(objBrand);
         }
         [HttpPost]
         public ActionResult Delete(News objPro)
         {
-            var objNews = objWEBEntities9.News.Where(n => n.Id == objPro.Id).FirstOrDefault();
-            objWEBEntities9.News.Remove(objNews);
+            var objBrand = objWEBEntities9.Brands.Where(n => n.Id == objPro.Id).FirstOrDefault();
+            objWEBEntities9.Brands.Remove(objBrand);
             objWEBEntities9.SaveChanges();
             return RedirectToAction("Index");
         }
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var objNews = objWEBEntities9.News.Where(n => n.Id == id).FirstOrDefault();
-            return View(objNews);
+            var objBrand = objWEBEntities9.Brands.Where(n => n.Id == id).FirstOrDefault();
+            return View(objBrand);
         }
         [HttpPost]
-        public ActionResult Edit(int id, News objNews)
+        public ActionResult Edit(int id, Brand objBrand)
         {
-            if (objNews.ImageUpload != null)
+            if (objBrand.ImageUpload != null)
             {
-                string fileName = Path.GetFileNameWithoutExtension(objNews.ImageUpload.FileName);
-                string extension = Path.GetExtension(objNews.ImageUpload.FileName);
+                string fileName = Path.GetFileNameWithoutExtension(objBrand.ImageUpload.FileName);
+                string extension = Path.GetExtension(objBrand.ImageUpload.FileName);
                 fileName = fileName + extension + "_" + long.Parse(DateTime.Now.ToString("yyyyMMddhhmmss"));
-                objNews.Avartar = fileName;
-                objNews.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/"), fileName));
+                objBrand.Avatar = fileName;
+                objBrand.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/"), fileName));
             }
-            objWEBEntities9.Entry(objNews).State = EntityState.Modified;
+            objWEBEntities9.Entry(objBrand).State = EntityState.Modified;
             objWEBEntities9.SaveChanges();
             return RedirectToAction("Index");
         }
