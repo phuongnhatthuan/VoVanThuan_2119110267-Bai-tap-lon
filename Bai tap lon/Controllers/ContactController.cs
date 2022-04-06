@@ -9,11 +9,11 @@ namespace Bai_tap_lon.Controllers
 {
     public class ContactController : Controller
     {
-        WEBEntities8 objWEBEntities8 = new WEBEntities8();
+        WEBEntities9 objWEBEntities9 = new WEBEntities9();
         // GET: Contact
         public ActionResult Index()
         {
-            var lstContact = objWEBEntities8.Contacts.ToList();
+            var lstContact = objWEBEntities9.Contacts.ToList();
            
             return View(lstContact);
         }

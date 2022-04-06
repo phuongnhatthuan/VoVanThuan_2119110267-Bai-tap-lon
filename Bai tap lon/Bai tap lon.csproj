@@ -140,16 +140,17 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Commo.cs" />
     <Compile Include="Context\Brand.cs">
-      <DependentUpon>dbModel1.tt</DependentUpon>
+      <DependentUpon>dbModel2.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\Categorry.cs">
-      <DependentUpon>dbModel1.tt</DependentUpon>
+      <DependentUpon>dbModel2.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\Contact.cs">
-      <DependentUpon>dbModel1.tt</DependentUpon>
+      <DependentUpon>dbModel2.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\dbModel1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -166,20 +167,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dbModel1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Context\dbModel2.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbModel2.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\dbModel2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbModel2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\dbModel2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbModel2.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Context\News.cs">
-      <DependentUpon>dbModel1.tt</DependentUpon>
+      <DependentUpon>dbModel2.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\Order.cs">
-      <DependentUpon>dbModel1.tt</DependentUpon>
+      <DependentUpon>dbModel2.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\OrderDetail.cs">
-      <DependentUpon>dbModel1.tt</DependentUpon>
+      <DependentUpon>dbModel2.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\Product.cs">
-      <DependentUpon>dbModel1.tt</DependentUpon>
+      <DependentUpon>dbModel2.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\User.cs">
-      <DependentUpon>dbModel1.tt</DependentUpon>
+      <DependentUpon>dbModel2.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\BrandController.cs" />
     <Compile Include="Controllers\CartController.cs" />
@@ -195,6 +211,7 @@
     <Compile Include="Models\CartModel.cs" />
     <Compile Include="Models\CategorryMaterData.cs" />
     <Compile Include="Models\HomeModel.cs" />
+    <Compile Include="Models\NewsMaterData.cs" />
     <Compile Include="Models\PartiaMetadataType.cs" />
     <Compile Include="Models\ProductMaterData.cs" />
     <Compile Include="Models\UserMasterData.cs" />
@@ -2144,6 +2161,12 @@
     <Content Include="Content\images\avatars\thuonghieu5.5.jpg" />
     <Content Include="Content\images\avatars\thuonghieu5.6.jpg" />
     <Content Include="Content\images\avatars\thuonghieu5.jpg" />
+    <Content Include="Content\images\avatars\tintuc.jpg" />
+    <Content Include="Content\images\avatars\tintuc1.jpg" />
+    <Content Include="Content\images\avatars\tintuc2.jpg" />
+    <Content Include="Content\images\avatars\tintuc3.jpg" />
+    <Content Include="Content\images\avatars\tintuc4.jpg" />
+    <Content Include="Content\images\avatars\tintuc5.jpg" />
     <Content Include="Content\images\banners\ad-sm.png" />
     <Content Include="Content\images\banners\ad-sm1.png" />
     <Content Include="Content\images\banners\ad.png" />
@@ -2271,6 +2294,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>dbModel1.edmx</DependentUpon>
       <LastGenOutput>dbModel1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Context\dbModel2.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dbModel2.edmx</DependentUpon>
+      <LastGenOutput>dbModel2.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Context\dbModel2.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dbModel2.edmx</DependentUpon>
+      <LastGenOutput>dbModel2.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -2419,6 +2452,18 @@
     </Content>
     <Content Include="Areas\Admin\Views\Category\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Category\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\News\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\News\Create.cshtml" />
+    <EntityDeploy Include="Context\dbModel2.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>dbModel2.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Context\dbModel2.edmx.diagram">
+      <DependentUpon>dbModel2.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\News\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\News\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\News\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\ckeditor\adapters\jquery.js" />
     <Content Include="Scripts\ckeditor\build-config.js" />

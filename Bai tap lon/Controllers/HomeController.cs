@@ -12,12 +12,12 @@ namespace Bai_tap_lon.Controllers
 {
     public class HomeController : Controller
     {
-        WEBEntities8 objWEBEntities8 = new WEBEntities8();
+        WEBEntities9 objWEBEntities9 = new WEBEntities9();
         public ActionResult Index()
         {
             HomeModel objHomeModel = new HomeModel();
-            objHomeModel.ListCategory = objWEBEntities8.Categorries.ToList();
-            objHomeModel.ListProduct = objWEBEntities8.Products.ToList();
+            objHomeModel.ListCategory = objWEBEntities9.Categorries.ToList();
+            objHomeModel.ListProduct = objWEBEntities9.Products.ToList();
 
             return View(objHomeModel);
         }
@@ -51,13 +51,13 @@ namespace Bai_tap_lon.Controllers
         {
             if (ModelState.IsValid)
             {
-                var check = objWEBEntities8.Users.FirstOrDefault(s => s.Email == _user.Email);
+                var check = objWEBEntities9.Users.FirstOrDefault(s => s.Email == _user.Email);
                 if (check == null)
                 {
                     _user.Password = GetMD5(_user.Password);
-                    objWEBEntities8.Configuration.ValidateOnSaveEnabled = false;
-                    objWEBEntities8.Users.Add(_user);
-                    objWEBEntities8.SaveChanges();
+                    objWEBEntities9.Configuration.ValidateOnSaveEnabled = false;
+                    objWEBEntities9.Users.Add(_user);
+                    objWEBEntities9.SaveChanges();
                     return RedirectToAction("Index");
                 }
                 else
@@ -100,7 +100,7 @@ namespace Bai_tap_lon.Controllers
 
 
                 var f_password = GetMD5(password);
-                var data = objWEBEntities8.Users.Where(s => s.Email.Equals(email) && s.Password.Equals(f_password)).ToList();
+                var data = objWEBEntities9.Users.Where(s => s.Email.Equals(email) && s.Password.Equals(f_password)).ToList();
                 if (data.Count() > 0)
                 {
                     //add session

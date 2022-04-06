@@ -13,7 +13,7 @@ namespace Bai_tap_lon.Areas.Admin.Controllers
 {
     public class ProductController : Controller
     {
-        WEBEntities8 objWEBEntities8 = new WEBEntities8();
+        WEBEntities9 objWEBEntities9 = new WEBEntities9();
         // GET: Admin/Product
 
         public ActionResult Index(string currenFilter, string SearchString, int? page)
@@ -29,11 +29,11 @@ namespace Bai_tap_lon.Areas.Admin.Controllers
             }    
             if(!string.IsNullOrEmpty(SearchString))
             {
-                lstProduct = objWEBEntities8.Products.Where(n => n.Name.Contains(SearchString)).ToList();
+                lstProduct = objWEBEntities9.Products.Where(n => n.Name.Contains(SearchString)).ToList();
             }    
             else
             {
-                lstProduct = objWEBEntities8.Products.ToList();
+                lstProduct = objWEBEntities9.Products.ToList();
             }
             ViewBag.currenFilter = SearchString;
             int pageSize = 4;
@@ -67,17 +67,14 @@ namespace Bai_tap_lon.Areas.Admin.Controllers
                     if (objProduct.ImageUpload != null)
                     {
                         string fileName = Path.GetFileNameWithoutExtension(objProduct.ImageUpload.FileName);
-                        //ten hinh
                         string extension = Path.GetExtension(objProduct.ImageUpload.FileName);
-                        //png
-                        fileName = fileName + extension;
-                        //tenhinh.png
+                        fileName = fileName + "_" + long.Parse(DateTime.Now.ToString("yyyyMMddhhmmss")) + extension;
                         objProduct.Avatar = fileName;
-                        objProduct.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Context/images/"), fileName));
+                        objProduct.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/"), fileName));
                     }
                     objProduct.CreateOnUtc = DateTime.Now;
-                    objWEBEntities8.Products.Add(objProduct);
-                    objWEBEntities8.SaveChanges();
+                    objWEBEntities9.Products.Add(objProduct);
+                    objWEBEntities9.SaveChanges();
 
                     return RedirectToAction("Index");
                 }
@@ -94,27 +91,27 @@ namespace Bai_tap_lon.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Details(int id)
         {
-            var objProduct = objWEBEntities8.Products.Where(n => n.Id == id).FirstOrDefault();
+            var objProduct = objWEBEntities9.Products.Where(n => n.Id == id).FirstOrDefault();
             return View(objProduct);
         }
         [HttpGet]
         public ActionResult Delete(int id)
         {
-            var objProduct = objWEBEntities8.Products.Where(n => n.Id == id).FirstOrDefault();
+            var objProduct = objWEBEntities9.Products.Where(n => n.Id == id).FirstOrDefault();
             return View(objProduct);
         }
         [HttpPost]
         public ActionResult Delete(Product objPro)
         {
-            var objProduct = objWEBEntities8.Products.Where(n => n.Id == objPro.Id).FirstOrDefault();
-            objWEBEntities8.Products.Remove(objProduct);
-            objWEBEntities8.SaveChanges();
+            var objProduct = objWEBEntities9.Products.Where(n => n.Id == objPro.Id).FirstOrDefault();
+            objWEBEntities9.Products.Remove(objProduct);
+            objWEBEntities9.SaveChanges();
             return RedirectToAction("Index");
         }
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var objProduct = objWEBEntities8.Products.Where(n => n.Id == id).FirstOrDefault();
+            var objProduct = objWEBEntities9.Products.Where(n => n.Id == id).FirstOrDefault();
             return View(objProduct);
         }
         [HttpPost]
@@ -128,21 +125,21 @@ namespace Bai_tap_lon.Areas.Admin.Controllers
                 objProduct.Avatar = fileName;
                 objProduct.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Context/images/"), fileName));
             }
-            objWEBEntities8.Entry(objProduct).State = EntityState.Modified;
-            objWEBEntities8.SaveChanges();
+            objWEBEntities9.Entry(objProduct).State = EntityState.Modified;
+            objWEBEntities9.SaveChanges();
             return RedirectToAction("Index");
         }
         void LoadData()
         {
             Commo objCommo = new Commo();
             //lay dử liệu danh mục dưới db
-            var lstCat = objWEBEntities8.Categorries.ToList();
+            var lstCat = objWEBEntities9.Categorries.ToList();
             //convert sang select list dang value,text
             ListtoDataTableConverter converter = new ListtoDataTableConverter();
             DataTable dtCategory = converter.ToDataTable(lstCat);
             ViewBag.ListCategory = objCommo.ToSelectList(dtCategory, "Id", "Name");
             //lấy dử liệu thương hiêu dưới DB
-            var lstBrand = objWEBEntities8.Brands.ToList();
+            var lstBrand = objWEBEntities9.Brands.ToList();
             DataTable dtBrand = converter.ToDataTable(lstBrand);
             // convert sang select
             ViewBag.ListBrand = objCommo.ToSelectList(dtBrand, "Id", "Name");

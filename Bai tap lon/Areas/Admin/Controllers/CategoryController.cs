@@ -14,7 +14,7 @@ namespace Bai_tap_lon.Areas.Admin.Controllers
     public class CategoryController : Controller
 
     {
-        WEBEntities8 objWEBEntities8 = new WEBEntities8();
+        WEBEntities9 objWEBEntities9 = new WEBEntities9();
         // GET: Admin/Category
         public ActionResult Index(string currenFilter, string SearchString, int? page)
         {
@@ -29,11 +29,11 @@ namespace Bai_tap_lon.Areas.Admin.Controllers
             }
             if (!string.IsNullOrEmpty(SearchString))
             {
-                lstCat = objWEBEntities8.Categorries.Where(n => n.Name.Contains(SearchString)).ToList();
+                lstCat = objWEBEntities9.Categorries.Where(n => n.Name.Contains(SearchString)).ToList();
             }
             else
             {
-                lstCat = objWEBEntities8.Categorries.ToList();
+                lstCat = objWEBEntities9.Categorries.ToList();
             }
             ViewBag.currenFilter = SearchString;
             int pageSize = 4;
@@ -66,17 +66,14 @@ namespace Bai_tap_lon.Areas.Admin.Controllers
                     if (objCategorry.ImageUpload != null)
                     {
                         string fileName = Path.GetFileNameWithoutExtension(objCategorry.ImageUpload.FileName);
-                        //ten hinh
                         string extension = Path.GetExtension(objCategorry.ImageUpload.FileName);
-                        //png
-                        fileName = fileName + extension;
-                        //tenhinh.png
+                        fileName = fileName + "_" + long.Parse(DateTime.Now.ToString("yyyyMMddhhmmss")) + extension;
                         objCategorry.Avatar = fileName;
-                        objCategorry.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Context/images/"), fileName));
+                        objCategorry.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/"), fileName));
                     }
                     objCategorry.CreateOnUtc = DateTime.Now;
-                    objWEBEntities8.Categorries.Add(objCategorry);
-                    objWEBEntities8.SaveChanges();
+                    objWEBEntities9.Categorries.Add(objCategorry);
+                    objWEBEntities9.SaveChanges();
 
                     return RedirectToAction("Index");
                 }
@@ -93,27 +90,27 @@ namespace Bai_tap_lon.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Details(int id)
         {
-            var objCategorry = objWEBEntities8.Categorries.Where(n => n.Id == id).FirstOrDefault();
+            var objCategorry = objWEBEntities9.Categorries.Where(n => n.Id == id).FirstOrDefault();
             return View(objCategorry);
         }
         [HttpGet]
         public ActionResult Delete(int id)
         {
-            var objCategorry = objWEBEntities8.Categorries.Where(n => n.Id == id).FirstOrDefault();
+            var objCategorry = objWEBEntities9.Categorries.Where(n => n.Id == id).FirstOrDefault();
             return View(objCategorry);
         }
         [HttpPost]
         public ActionResult Delete(Categorry objPro)
         {
-            var objCategorry = objWEBEntities8.Categorries.Where(n => n.Id == objPro.Id).FirstOrDefault();
-            objWEBEntities8.Categorries.Remove(objCategorry);
-            objWEBEntities8.SaveChanges();
+            var objCategorry = objWEBEntities9.Categorries.Where(n => n.Id == objPro.Id).FirstOrDefault();
+            objWEBEntities9.Categorries.Remove(objCategorry);
+            objWEBEntities9.SaveChanges();
             return RedirectToAction("Index");
         }
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var objCategorry = objWEBEntities8.Categorries.Where(n => n.Id == id).FirstOrDefault();
+            var objCategorry = objWEBEntities9.Categorries.Where(n => n.Id == id).FirstOrDefault();
             return View(objCategorry);
         }
         [HttpPost]
@@ -127,8 +124,8 @@ namespace Bai_tap_lon.Areas.Admin.Controllers
                 objCategorry.Avatar = fileName;
                 objCategorry.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Context/images/"), fileName));
             }
-            objWEBEntities8.Entry(objCategorry).State = EntityState.Modified;
-            objWEBEntities8.SaveChanges();
+            objWEBEntities9.Entry(objCategorry).State = EntityState.Modified;
+            objWEBEntities9.SaveChanges();
             return RedirectToAction("Index");
         }
       

@@ -9,16 +9,16 @@ namespace Bai_tap_lon.Controllers
 {
     public class CategoryController : Controller
     {
-        WEBEntities8 objWEBEntities8 = new WEBEntities8();
+        WEBEntities9 objWEBEntities9 = new WEBEntities9();
         // GET: Category
         public ActionResult Index()
         {
-            var lstCategory = objWEBEntities8.Categorries.ToList();
+            var lstCategory = objWEBEntities9.Categorries.ToList();
             return View(lstCategory);
         }
         public ActionResult ProductCategory(int Id)
         {
-            var listProduct = objWEBEntities8.Products.Where(n => n.CategoryId == Id).ToList();
+            var listProduct = objWEBEntities9.Products.Where(n => n.CategoryId == Id).ToList();
             return View(listProduct);
         }
         
