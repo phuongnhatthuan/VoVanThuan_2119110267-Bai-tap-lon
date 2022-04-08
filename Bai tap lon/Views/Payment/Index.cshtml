@@ -4,6 +4,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Thanh toán thành công</h2>
-<p><a href="@Url.Action("Index", "Home")">Tiếp tục mua sắp</a></p>
+<div class="alert alert-success mt-3">
+    <p class="icontext"> <i class="far fa-credit-card" ></i> CHÚC MỪNG BẠN THANH TOÁN THÀNH CÔNG </p>
 
+    <p><a href="@Url.Action("Index", "Home")">Tiếp tục mua sắp</a></p>
+</div>
+<style>
+    div.a {
+        text-align: center;
+    }
+</style>
+<div style="color:dimgray; font-size:25px;" class="a"></i>Xin cảm ơn bạn đã tin tưởng  và mua bánh kem tại Shop CAKE </div>

@@ -2284,6 +2284,7 @@
     <Content Include="Content\images\posts\4.jpg" />
     <Content Include="Content\js\bootstrap.bundle.min.js" />
     <Content Include="Content\js\jquery-2.0.0.min.js" />
+    <Content Include="Content\js\main.js" />
     <Content Include="Content\js\script.js" />
     <Content Include="Content\js\slide13.jpg" />
     <Content Include="Content\PagedList.css" />
