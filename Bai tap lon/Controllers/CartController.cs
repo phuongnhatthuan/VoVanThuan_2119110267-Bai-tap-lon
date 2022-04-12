@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -60,6 +61,65 @@ namespace Bai_tap_lon.Controllers
             Session["cart"] = li;
             Session["count"] = Convert.ToInt32(Session["count"]) - 1;
             return Json(new { Message = "Thành công", JsonRequestBehavior.AllowGet });
+        }
+        [HttpGet]
+        public ActionResult Payment()
+        {
+            var cart = Session["cart"];
+            var list = new List<CartModel>();
+            if (cart != null)
+            {
+                list = (List<CartModel>)cart;
+            }
+            return View(list);
+        }
+
+        [HttpPost]
+        public ActionResult Payment(string shipName, string mobile, string address, string email)
+        {
+            var order = new Order();
+            order.CreatedOnUtc = DateTime.Now;
+            order.ShipAddress = address;
+            order.ShipMobile = mobile;
+            order.ShipName = shipName;
+            order.ShipEmail = email;
+
+            try
+            {
+
+                string content = System.IO.File.ReadAllText(Server.MapPath("~/content/template/neworder.html"));
+
+                content = content.Replace("{{CustomerName}}", shipName);
+                content = content.Replace("{{Phone}}", mobile);
+                content = content.Replace("{{Email}}", email);
+                content = content.Replace("{{Address}}", address);
+                var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
+
+                // Để Gmail cho phép SmtpClient kết nối đến server SMTP của nó với xác thực 
+                //là tài khoản gmail của bạn, bạn cần thiết lập tài khoản email của bạn như sau:
+                //Vào địa chỉ https://myaccount.google.com/security  Ở menu trái chọn mục Bảo mật, sau đó tại mục Quyền truy cập 
+                //của ứng dụng kém an toàn phải ở chế độ bật
+                //  Đồng thời tài khoản Gmail cũng cần bật IMAP
+                //Truy cập địa chỉ https://mail.google.com/mail/#settings/fwdandpop
+
+              
+                Session["cart"] = null;
+            }
+            catch (Exception ex)
+            {
+                //ghi log
+                return Redirect("/Cart/UnSuccess");
+            }
+            return Redirect("/Cart/Success");
+        }
+
+        public ActionResult Success()
+        {
+            return View();
+        }
+        public ActionResult UnSuccess()
+        {
+            return View();
         }
     }
 }

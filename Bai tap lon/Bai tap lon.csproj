@@ -2288,6 +2288,7 @@
     <Content Include="Content\js\script.js" />
     <Content Include="Content\js\slide13.jpg" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\template\neworder.html" />
     <Content Include="Context\dbModel1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>dbModel1.edmx</DependentUpon>
@@ -2823,6 +2824,9 @@
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Payment\Index.cshtml" />
     <Content Include="Views\Brand\ProductBand.cshtml" />
+    <Content Include="Views\Cart\Payment.cshtml" />
+    <Content Include="Views\Cart\Success.cshtml" />
+    <Content Include="Views\Cart\UnSuccess.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

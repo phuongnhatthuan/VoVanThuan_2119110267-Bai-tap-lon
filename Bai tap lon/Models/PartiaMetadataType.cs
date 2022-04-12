@@ -37,4 +37,5 @@ namespace Bai_tap_lon.Context
         [NotMapped]
         public System.Web.HttpPostedFileBase ImageUpload { get; set; }
     }
+   
 }

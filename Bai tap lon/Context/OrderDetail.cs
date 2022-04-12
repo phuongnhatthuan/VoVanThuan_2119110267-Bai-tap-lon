@@ -18,5 +18,6 @@ namespace Bai_tap_lon.Context
         public Nullable<int> OrderId { get; set; }
         public Nullable<int> ProductId { get; set; }
         public Nullable<int> Quantity { get; set; }
+        public Nullable<double> Price { get; set; }
     }
 }

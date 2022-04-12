@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="WEBModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="WEBModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Brand">
           <Key>
             <PropertyRef Name="Id" />
@@ -69,6 +69,11 @@
           <Property Name="UserId" Type="int" />
           <Property Name="Status" Type="int" />
           <Property Name="CreatedOnUtc" Type="datetime" />
+          <Property Name="CustomerID" Type="bigint" />
+          <Property Name="ShipName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ShipMobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="ShipEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="ShipAddress" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="OrderDetail">
           <Key>
@@ -78,6 +83,7 @@
           <Property Name="OrderId" Type="int" />
           <Property Name="ProductId" Type="int" />
           <Property Name="Quantity" Type="int" />
+          <Property Name="Price" Type="float" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -121,8 +127,7 @@
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="WEBModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -190,6 +195,11 @@
           <Property Name="UserId" Type="Int32" />
           <Property Name="Status" Type="Int32" />
           <Property Name="CreatedOnUtc" Type="DateTime" Precision="3" />
+          <Property Name="CustomerID" Type="Int64" />
+          <Property Name="ShipName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ShipMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ShipEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ShipAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="OrderDetail">
           <Key>
@@ -199,6 +209,7 @@
           <Property Name="OrderId" Type="Int32" />
           <Property Name="ProductId" Type="Int32" />
           <Property Name="Quantity" Type="Int32" />
+          <Property Name="Price" Type="Double" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -310,6 +321,11 @@
           <EntitySetMapping Name="Orders">
             <EntityTypeMapping TypeName="WEBModel1.Order">
               <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="ShipAddress" ColumnName="ShipAddress" />
+                <ScalarProperty Name="ShipEmail" ColumnName="ShipEmail" />
+                <ScalarProperty Name="ShipMobile" ColumnName="ShipMobile" />
+                <ScalarProperty Name="ShipName" ColumnName="ShipName" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -321,6 +337,7 @@
           <EntitySetMapping Name="OrderDetails">
             <EntityTypeMapping TypeName="WEBModel1.OrderDetail">
               <MappingFragment StoreEntitySet="OrderDetail">
+                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="OrderId" ColumnName="OrderId" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
