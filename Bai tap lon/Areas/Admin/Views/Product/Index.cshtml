@@ -170,6 +170,7 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.FirstOrDefault().Avatar)
+           
         </th>
         <th>
             @Html.DisplayNameFor(model => model.FirstOrDefault().CategoryId)
@@ -203,7 +204,7 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Avatar)
+            <img style="width:8em" src="~/Content/images/items/@item.Avatar" alt="Alternate Text" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CategoryId)

@@ -67,9 +67,9 @@ namespace Bai_tap_lon.Areas.Admin.Controllers
                     {
                         string fileName = Path.GetFileNameWithoutExtension(objCategorry.ImageUpload.FileName);
                         string extension = Path.GetExtension(objCategorry.ImageUpload.FileName);
-                        fileName = fileName + "_" + long.Parse(DateTime.Now.ToString("yyyyMMddhhmmss")) + extension;
+                        fileName = fileName + extension;
                         objCategorry.Avatar = fileName;
-                        objCategorry.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/"), fileName));
+                        objCategorry.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/category/"), fileName));
                     }
                     objCategorry.CreateOnUtc = DateTime.Now;
                     objWEBEntities9.Categorries.Add(objCategorry);
@@ -120,9 +120,9 @@ namespace Bai_tap_lon.Areas.Admin.Controllers
             {
                 string fileName = Path.GetFileNameWithoutExtension(objCategorry.ImageUpload.FileName);
                 string extension = Path.GetExtension(objCategorry.ImageUpload.FileName);
-                fileName = fileName + extension + "_" + long.Parse(DateTime.Now.ToString("yyyyMMddhhmmss"));
+                fileName = fileName + extension ;
                 objCategorry.Avatar = fileName;
-                objCategorry.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/"), fileName));
+                objCategorry.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/items/"), fileName));
             }
             objWEBEntities9.Entry(objCategorry).State = EntityState.Modified;
             objWEBEntities9.SaveChanges();

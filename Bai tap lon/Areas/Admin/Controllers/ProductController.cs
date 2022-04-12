@@ -66,26 +66,28 @@ namespace Bai_tap_lon.Areas.Admin.Controllers
                 {
                     if (objProduct.ImageUpload != null)
                     {
+
                         string fileName = Path.GetFileNameWithoutExtension(objProduct.ImageUpload.FileName);
                         string extension = Path.GetExtension(objProduct.ImageUpload.FileName);
-                        fileName = fileName + "_" + long.Parse(DateTime.Now.ToString("yyyyMMddhhmmss")) + extension;
+                        fileName = fileName + extension;
                         objProduct.Avatar = fileName;
-                        objProduct.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/"), fileName));
+                        objProduct.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/items/"), fileName));
                     }
+
                     objProduct.CreateOnUtc = DateTime.Now;
+                    objProduct.Deleted = false;
+                  
                     objWEBEntities9.Products.Add(objProduct);
                     objWEBEntities9.SaveChanges();
-
                     return RedirectToAction("Index");
                 }
-
-                catch
+                catch (Exception)
                 {
-                    return View();
+                    return RedirectToAction("Index");
                 }
-               
             }
             return View(objProduct);
+
         }
 
         [HttpGet]
@@ -120,9 +122,9 @@ namespace Bai_tap_lon.Areas.Admin.Controllers
             {
                 string fileName = Path.GetFileNameWithoutExtension(objProduct.ImageUpload.FileName);
                 string extension = Path.GetExtension(objProduct.ImageUpload.FileName);
-                fileName = fileName + extension + "_" + long.Parse(DateTime.Now.ToString("yyyyMMddhhmmss"));
+                fileName = fileName + extension ;
                 objProduct.Avatar = fileName;
-                objProduct.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/"), fileName));
+                objProduct.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/items/"), fileName));
             }
             objWEBEntities9.Entry(objProduct).State = EntityState.Modified;
             objWEBEntities9.SaveChanges();

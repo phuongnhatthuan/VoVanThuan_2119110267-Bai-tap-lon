@@ -38,7 +38,5 @@ namespace Bai_tap_lon.Models
         public Nullable<System.DateTime> CreateOnUtc { get; set; }
         public Nullable<System.DateTime> UpdateOnUtc { get; set; }
 
-        [NotMapped]
-        public System.Web.HttpPostedFileBase ImageUpload { get; set; }
     }
 }
