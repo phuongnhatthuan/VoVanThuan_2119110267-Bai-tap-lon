@@ -1,0 +1,90 @@
+﻿@model Bai_tap_lon.Context.User
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+@*<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@
+<style>
+    .btn-warning:hover {
+        background-color: #000000;
+        color: #00ff21;
+    }
+
+    .field {
+        font-weight: bold;
+    }
+
+    .fullDes_Detai {
+        max-height: 900px;
+        overflow: hidden;
+    }
+
+        .fullDes_Detai img {
+            margin-left: 20%;
+        }
+
+    .readmore {
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .active .fullDes_Detai {
+        height: 100%;
+    }
+
+    .btnTop__active {
+        width: 200px;
+        margin: 10px;
+        margin-left: 20px;
+    }
+</style>
+<!--------------------------------------------------------->
+<div class="card-body row">
+    <a href="@Url.Action("Index","User")" class="btn btn-block btn-warning btnTop__active">  Trở về trang trước</a>
+    <a href="@Url.Action("Edit","User",new { id = Model.Id })" class="btn btn-block btn-warning btnTop__active"><i class="fa-solid fa-pen-to-square"></i> Chỉnh sửa</a>
+
+    <div class="col-md-9">
+        <table class="table table-bordered table-striped" id="myTable">
+            <thead>
+                <tr>
+
+                    <th class="text-center" style="width:200px">  Trường</th>
+                    <th class="text-center"> Nội dung  </th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td class="field">FirstName</td>
+                    <td>@Model.FirstName</td>
+                </tr>
+                <tr>
+                    <td class="field">LastName</td>
+                    <td>@Model.LastName</td>
+                </tr>
+                <tr>
+                    <td class="field">Email</td>
+                    <td>@Model.Email</td>
+                </tr>
+                <tr>
+                    <td class="field">Password</td>
+                    <td>@Model.Password</td>
+                </tr>
+                <tr>
+                    <td class="field">IsAdmin</td>
+                    <td>@Model.IsAdmin</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
