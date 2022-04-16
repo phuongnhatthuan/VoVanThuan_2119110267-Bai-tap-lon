@@ -7,59 +7,93 @@
 
 <h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>User</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Password)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IsAdmin)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IsAdmin)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+<style>
+    .btn-warning:hover {
+        background-color: #000000;
+        color: #00ff21;
     }
+
+    .field {
+        font-weight: bold;
+    }
+
+    .fullDes_Detai {
+        max-height: 900px;
+        overflow: hidden;
+    }
+
+        .fullDes_Detai img {
+            margin-left: 20%;
+        }
+
+    .readmore {
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .active .fullDes_Detai {
+        height: 100%;
+    }
+
+    .btnTop__active {
+        width: 200px;
+        margin: 10px;
+        margin-left: 20px;
+    }
+</style>
+<!--------------------------------------------------------->
+<div class="card-body row">
+    <a href="@Url.Action("Index","User")" class="btn btn-danger btn-warning btnTop__active">  Trở về trang trước</a>
+    <a href="@Url.Action("Edit","User",new { id = Model.Id })" class="btn btn-danger btn-warning btnTop__active"><i class="fa-solid fa-pen-to-square"></i> Chỉnh sửa</a>
+
+    <div class="col-md-9">
+        <table class="table table-bordered table-striped" id="myTable">
+            <thead>
+                <tr>
+
+                    <th class="text-center" style="width:200px">  Trường</th>
+                    <th class="text-center"> Nội dung  </th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td class="field">FirstName</td>
+                    <td>@Model.FirstName</td>
+                </tr>
+                <tr>
+                    <td class="field">LastName</td>
+                    <td>@Model.LastName</td>
+                </tr>
+                <tr>
+                    <td class="field">Email</td>
+                    <td>@Model.Email</td>
+                </tr>
+                <tr>
+                    <td class="field">Password</td>
+                    <td>@Model.Password</td>
+                </tr>
+                <tr>
+                    <td class="field">IsAdmin</td>
+                    <td>@Model.IsAdmin</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
 </div>
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+}
+

@@ -10,8 +10,8 @@ namespace Bai_tap_lon.Models
     public class CategorryMaterData
     {
         public int Id { get; set; }
-        [Required(ErrorMessage = "Vui lòng nhập tên sản phẩm")]
-        [Display(Name = "Tên sản phẩm")]
+        [Required(ErrorMessage = "Vui lòng nhập tên danh mục")]
+        [Display(Name = "Tên danh mục")]
         public string Name { get; set; }
         [Display(Name = "Hình đại diện")]
         public string Avatar { get; set; }

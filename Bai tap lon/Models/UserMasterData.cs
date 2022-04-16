@@ -9,7 +9,7 @@ namespace Bai_tap_lon.Models
     public class UserMasterData
     {
         public int Id { get; set; }
-        [Required(ErrorMessage = "Vui lòng nhập ten")]
+        [Required(ErrorMessage = "Vui lòng nhập tên")]
         [Display(Name = "Tên ")]
         public string FirstName { get; set; }
 

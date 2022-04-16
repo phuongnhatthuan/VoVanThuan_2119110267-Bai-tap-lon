@@ -5,75 +5,88 @@
 }
 
 <h2>Delete</h2>
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Brand</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Avatar)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Avatar)
-        </dd>
-
-        <dd>
-            @Html.DisplayFor(model => model.Deleted)
-        </dd>
-
-        <dd>
-            @Html.DisplayFor(model => model.Deleted)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ShowOnHomePage)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ShowOnHomePage)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DisplayOrder)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DisplayOrder)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreateOnUtc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreateOnUtc)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UpdateOnUtc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UpdateOnUtc)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm("Delete", "Brand", FormMethod.Post, new { enctype = "multipart/from-data" }))
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+<style>
+    .btn-warning:hover {
+        background-color: #000000;
+        color: #00ff21;
     }
+
+    .field {
+        font-weight: bold;
+    }
+
+    .fullDes_Detai {
+        max-height: 900px;
+        overflow: hidden;
+    }
+
+        .fullDes_Detai img {
+            margin-left: 20%;
+        }
+
+    .readmore {
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .active .fullDes_Detai {
+        height: 100%;
+    }
+
+    .btnTop__active {
+        width: 200px;
+        margin: 10px;
+        margin-left: 20px;
+    }
+</style>
+<!--------------------------------------------------------->
+<div class="card-body row">
+    <a href="@Url.Action("Index","Brand")" class="btn btn-danger btn-warning btnTop__active">  Trở về trang trước</a>
+    <a href="@Url.Action("Edit","Brand",new { id = Model.Id })" class="btn btn-danger btn-warning btnTop__active"><i class="fa-solid fa-pen-to-square"></i> Chỉnh sửa</a>
+
+    <div class="col-md-9">
+        <table class="table table-bordered table-striped" id="myTable">
+            <thead>
+                <tr>
+
+                    <th class="text-center" style="width:200px">  Trường</th>
+                    <th class="text-center"> Nội dung  </th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td class="field">Tên thuong hiệu</td>
+                    <td>@Model.Name</td>
+                </tr>
+                <tr>
+                    <td class="field">Hinh</td>
+                    <td>@Model.Avatar</td>
+                </tr>
+                <tr>
+                    <td class="field">Slug</td>
+                    <td>@Model.Slug</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+    <div class="col-md-3">
+        <img src="/Content/images/avatars/@Model.Avatar" alt="@Model.Name" class="img-fluid" />
+        <p class="text-center">Hình ảnh sản phẩm <span class="font-weight-bold">@Model.Name</span></p>
+    </div>
+
 </div>
+
+@using (Html.BeginForm("Delete", "Brand", FormMethod.Post, new { enctype = "multipart/from-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+}
+

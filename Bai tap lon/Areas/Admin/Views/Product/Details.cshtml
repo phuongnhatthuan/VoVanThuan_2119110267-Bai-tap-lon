@@ -42,8 +42,8 @@
 </style>
 <!--------------------------------------------------------->
 <div class="card-body row">
-    <a href="@Url.Action("Index","Category")" class="btn btn-block btn-warning btnTop__active">  Trở về trang trước</a>
-    <a href="@Url.Action("Edit","Category",new { id = Model.Id })" class="btn btn-block btn-warning btnTop__active"><i class="fa-solid fa-pen-to-square"></i> Chỉnh sửa</a>
+    <a href="@Url.Action("Index","Product")" class="btn btn-danger btn-warning btnTop__active">  Trở về trang trước</a>
+    <a href="@Url.Action("Edit","Product",new { id = Model.Id })" class="btn btn-danger btn-warning btnTop__active"><i class="fa-solid fa-pen-to-square"></i> Chỉnh sửa</a>
 
     <div class="col-md-9">
         <table class="table table-bordered table-striped" id="myTable">
@@ -80,7 +80,7 @@
                 </tr>
                 <tr>
                     <td class="field">FullDescription</td>
-                    <td>@Model.FullDescription</td>
+                    <td>@Html.Raw(@Model.FullDescription)</td>
                 </tr>
                 <tr>
                     <td class="field">Price</td>
@@ -119,7 +119,7 @@
         </table>
     </div>
     <div class="col-md-3">
-        <img src="/Content/images/avatars/@Model.Avatar" alt="@Model.Name" class="img-fluid" />
+        <img src="~/Content/images/items/" alt="@Model.Name" class="img-fluid" />
         <p class="text-center">Hình ảnh sản phẩm <span class="font-weight-bold">@Model.Name</span></p>
     </div>
 

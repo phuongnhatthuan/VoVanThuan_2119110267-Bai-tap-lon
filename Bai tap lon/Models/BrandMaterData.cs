@@ -10,7 +10,7 @@ namespace Bai_tap_lon.Models
     public class BrandMaterData
     {
         public int Id { get; set; }
-        [Required(ErrorMessage = "Vui lòng nhập tên sản phẩm")]
+        [Required(ErrorMessage = "Vui lòng nhập tên thương hiệu")]
         [Display(Name = "Tên sản phẩm")]
         public string Name { get; set; }
         [Display(Name = "Hình đại diện")]

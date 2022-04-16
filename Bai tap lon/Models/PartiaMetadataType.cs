@@ -37,5 +37,17 @@ namespace Bai_tap_lon.Context
         [NotMapped]
         public System.Web.HttpPostedFileBase ImageUpload { get; set; }
     }
-   
+    [MetadataType(typeof(OrderMaterData))]
+    public partial class Order
+    {
+        [NotMapped]
+        public System.Web.HttpPostedFileBase ImageUpload { get; set; }
+    }
+    [MetadataType(typeof(OrderDetailMaterData))]
+    public partial class OrderDetail
+    {
+        [NotMapped]
+        public System.Web.HttpPostedFileBase ImageUpload { get; set; }
+    }
+
 }
