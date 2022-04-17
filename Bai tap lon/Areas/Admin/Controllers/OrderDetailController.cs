@@ -24,14 +24,14 @@ namespace Bai_tap_lon.Areas.Admin.Controllers
             {
                 SearchString = currenFilter;
             }
-            //if (!string.IsNullOrEmpty(SearchString))
-            //{
-            //    lstOrderDetail = objWEBEntities9.OrderDetails.Where(n => n.Id.Contains(SearchString)).ToList();
-            //}
-            //else
-            //{
-            //    lstOrderDetail = objWEBEntities9.OrderDetails.ToList();
-            //}
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+                //lstOrderDetail = objWEBEntities9.OrderDetails.Where(n => n.OrderId.Contains(SearchString)).ToList();
+            }
+            else
+            {
+                lstOrderDetail = objWEBEntities9.OrderDetails.ToList();
+            }
             ViewBag.currenFilter = SearchString;
             int pageSize = 4;
             int pageNumber = (page ?? 1);

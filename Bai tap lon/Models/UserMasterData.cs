@@ -14,9 +14,9 @@ namespace Bai_tap_lon.Models
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
-        [Display(Name = "Nhap email ")]
+        [Display(Name = "Username ")]
         public string Email { get; set; }
-        [Display(Name = "Nhap password ")]
+        [Display(Name = "Password ")]
         public string Password { get; set; }
         public Nullable<bool> IsAdmin { get; set; }
     }
