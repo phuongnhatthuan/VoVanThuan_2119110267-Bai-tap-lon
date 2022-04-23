@@ -73,53 +73,57 @@
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="widgets-wrap float-md-right">
                             <div class="widget-header mr-3">
-                                <a href="~/Admin/Home/Index" class="widget-view">
-                                    <div class="icon-area">
-                                        <i class="fa fa-user"></i>
-                                        <span class="notify">3</span>
-                                    </div>
+                               
                                     @if (Session["idUser"] != null)
                                     {
-                                            
-                                <a href="~/Home/Logout" class="fa fa-reply" >Logout</a>
-                                     
+                                        <div class="widget-header">
+                                            <a href="~/Admin/Home/Index" class="widget-view">
+                                                <div class="icon-area">
+                                                    <i class="fa fa-user"></i>
+                                                    <span class="notify">3</span>
+                                                </div>
+                                                <small class="text"> Admin </small>
+                                            </a>
+                                        </div>
+                                        <a href="~/Home/Logout" class="fa fa-reply">Logout</a>
+                                        <div class="widget-header mr-3">
+                                            <a href="#" class="widget-view">
+                                                <div class="icon-area">
+                                                    <i class="fa fa-comment-dots"></i>
+                                                    <span class="notify">1</span>
+                                                </div>
+                                                <small class="text"> Tin Nhắn </small>
+                                            </a>
+                                        </div>
+                                        <div class="widget-header mr-3">
+                                            <a href="#" class="widget-view">
+                                                <div class="icon-area">
+                                                    <i class="fa fa-store"></i>
+                                                </div>
+                                                <small class="text"> Order </small>
+                                            </a>
+                                        </div>
+                                        <div class="widget-header">
+                                            <a href="@Url.Action("Index", "Cart")" class="widget-view">
+                                                <div class="icon-area">
+                                                    <i class="fa fa-shopping-cart"></i>
+                                                    <span class="notify" id="CartCount">@Session["count"]</span>
+                                                </div>
+                                                <small class="text"> Cart </small>
+                                            </a>
+                                        </div>
                                     }
-                                     else
+                                    else
                                     {
-                                 <a href="~/Home/Login"class="fas fa-sign-in-alt">Login</a>
-                                
-                                    <a href="~/Home/Register"class="fas fa-cash-register  fa-inverse">Register</a>
-                         
-                                             
-                                    }  
+                                        <a href="~/Home/Login" class="fas fa-sign-in-alt">Login</a>
+
+                                        <a href="~/Home/Register" class="fas fa-cash-register  fa-inverse">Register</a>
+
+
+                                    }
                                 </a>
                                 </div>
-                            <div class="widget-header mr-3">
-                                <a href="#" class="widget-view">
-                                    <div class="icon-area">
-                                        <i class="fa fa-comment-dots"></i>
-                                        <span class="notify">1</span>
-                                    </div>
-                                    <small class="text"> Tin Nhắn </small>
-                                </a>
-                            </div>
-                            <div class="widget-header mr-3">
-                                <a href="#" class="widget-view">
-                                    <div class="icon-area">
-                                        <i class="fa fa-store"></i>
-                                    </div>
-                                    <small class="text"> Order </small>
-                                </a>
-                            </div>
-                            <div class="widget-header">
-                                <a href="@Url.Action("Index", "Cart")" class="widget-view">
-                                    <div class="icon-area">
-                                        <i class="fa fa-shopping-cart"></i>
-                                        <span class="notify" id="CartCount">@Session["count"]</span>
-                                    </div>
-                                    <small class="text"> Cart </small>
-                                </a>
-                            </div>
+                            
                         </div> <!-- widgets-wrap.// -->
                     </div> <!-- col.// -->
                 </div> <!-- row.// -->
