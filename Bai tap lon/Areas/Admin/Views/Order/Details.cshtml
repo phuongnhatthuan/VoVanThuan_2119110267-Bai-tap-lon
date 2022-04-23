@@ -6,40 +6,74 @@
 }
 
 <h2>Details</h2>
+<style>
+    .btn-warning:hover {
+        background-color: #000000;
+        color: #00ff21;
+    }
 
-<div>
-    <h4>Order</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    .field {
+        font-weight: bold;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+    .fullDes_Detai {
+        max-height: 900px;
+        overflow: hidden;
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UserId)
-        </dt>
+        .fullDes_Detai img {
+            margin-left: 20%;
+        }
 
-        <dd>
-            @Html.DisplayFor(model => model.UserId)
-        </dd>
+    .readmore {
+        text-align: center;
+        cursor: pointer;
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
+    .active .fullDes_Detai {
+        height: 100%;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.Status)
-        </dd>
+    .btnTop__active {
+        width: 200px;
+        margin: 10px;
+        margin-left: 20px;
+    }
+</style>
+<!--------------------------------------------------------->
+<div class="card-body row">
+    <a href="@Url.Action("Index","Order")" class="btn btn-danger btn-warning btnTop__active">  Trở về trang trước</a>
+    <a href="@Url.Action("Edit","Order",new { id = Model.Id })" class="btn btn-danger btn-warning btnTop__active"><i class="fa-solid fa-pen-to-square"></i> Chỉnh sửa</a>
 
-       
+    <div class="col-md-9">
+        <table class="table table-bordered table-striped" id="myTable">
+            <thead>
+                <tr>
 
-    </dl>
+                    <th class="text-center" style="width:200px">  Trường</th>
+                    <th class="text-center"> Nội dung  </th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td class="field">Name</td>
+                    <td>@Model.Name</td>
+                </tr>
+                <tr>
+                    <td class="field">UserId</td>
+                    <td>@Model.UserId</td>
+                </tr>
+                <tr>
+                    <td class="field">Status</td>
+                    <td>@Model.Status</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
